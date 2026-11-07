@@ -742,7 +742,7 @@ class MCPHandler(http.server.BaseHTTPRequestHandler):
         elif self.path == '/sse':
             self._handle_sse()
         else:
-            self._json_response({"error": "Not found"}, 404)
+            self.jsonresponse({"status": "ok", "tools": len(TOOLS), "version": VERSION})
     def do_POST(self):
         length = int(self.headers.get('Content-Length', 0))
         body = json.loads(self.rfile.read(length)) if length else {}
