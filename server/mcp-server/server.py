@@ -47,7 +47,7 @@ _load_dotenv()
 NETEASE_COOKIE = os.environ.get("NETEASE_COOKIE", "")
 NETEASE_CSRF = os.environ.get("NETEASE_CSRF", "")
 NETEASE_UID = os.environ.get("NETEASE_UID", "")  # optional; looked up automatically if empty
-PORT = int(os.environ.get("MCP_PORT", "3456"))
+PORT = int(os.environ.get("PORT") or os.environ.get("MCP_PORT") or "3456")
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO").upper()
 SESSION_ID = str(uuid.uuid4())
 try:
